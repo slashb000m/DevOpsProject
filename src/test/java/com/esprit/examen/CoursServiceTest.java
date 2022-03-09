@@ -1,8 +1,5 @@
 package com.esprit.examen;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -18,6 +15,8 @@ import com.esprit.examen.services.ICoursService;
 
 import junit.framework.Assert;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.*;
 
 @SpringBootTest
 public class CoursServiceTest {
@@ -43,7 +42,7 @@ public class CoursServiceTest {
 		Cours cours = new Cours(1L,"testing",TypeCours.Informatique,"test");
 		Cours updateCours = new Cours(1L,"testing",TypeCours.Informatique,"testingUpdate");
 		 Cours updateCoursFinal = courService.updateCoursById(cours.getId(),updateCours);
-		assertTrue(updateCoursFinal.getIntitule().equals("testingUpdate"));
+		assertEquals("testingUpdate",updateCoursFinal.getIntitule());
 
 	}
 	@Test
