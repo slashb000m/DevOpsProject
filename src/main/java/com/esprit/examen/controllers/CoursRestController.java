@@ -54,5 +54,4 @@ public String affecterFormateurASession(@PathVariable("coursId")  Long coursId, 
 	coursService.affecterCoursASession(coursId, sessionId);
 	return "cours affecté correctement";
 }
-
 }
