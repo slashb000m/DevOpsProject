@@ -56,4 +56,5 @@ public class CoursServiceTest {
 		boolean res= courService.getCours().stream().anyMatch(curs-> curs.toString().equals(cours.toString()));
 		assertFalse(res);
 	}
+
 }
