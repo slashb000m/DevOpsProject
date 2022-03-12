@@ -18,7 +18,6 @@ public class FormateurService implements IFormateurService{
 	public Long addFormateur(Formateur formateur) {
 		formateurRepository.save(formateur);
 		return formateur.getId();
-
 	}
 
 	@Override
