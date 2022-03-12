@@ -11,7 +11,11 @@ import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.CoursRepository;
 import com.esprit.examen.repositories.SessionRepository;
 
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CoursService implements ICoursService {
 
 	@Autowired
@@ -19,6 +23,7 @@ public class CoursService implements ICoursService {
 	@Override
 	public Long addCours(Cours cours) {
 		coursRepository.save(cours);
+		log.info("added course "+ cours);
 		return cours.getId();
 	}
 
@@ -48,4 +53,13 @@ public class CoursService implements ICoursService {
         
 	}
 
+	@Override
+	public Cours updateCoursById(long coursId, Cours cours) {
+		Cours cours1= new Cours(cours.getId(),cours.getDescription(),cours.getTypeCours(),cours.getIntitule());
+		cours1.setTypeCours(cours.getTypeCours());
+		cours1.setDescription(cours.getDescription());
+		cours1.setIntitule(cours.getIntitule());
+		log.info("cours update sucess", cours1.getId());
+		return cours1;
+	}
 }
